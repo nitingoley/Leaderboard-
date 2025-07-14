@@ -23,6 +23,13 @@ app.use('/api/users', userRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/history', historyRoutes);
 
+
+ // for testing 
+app.get("/", (req, res) => {
+  res.send("Leaderboard API is running");
+});
+
+
 // 🚀 Start server after DB connects
 connectDB()
   .then(() => {
