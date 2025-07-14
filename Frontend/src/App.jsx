@@ -5,9 +5,7 @@ import Notification from "./components/Notification";
 import LeaderboardTable from "./components/LeaderboardTable";
 import UserSelector from "./components/UserSelector";
 
-const API_BASE = import.meta.env.MODE === "development"
-  ? import.meta.env.VITE_BACKEND_URL
-  : "https://leaderboard-api.onrender.com/api";
+const API_BASE = "https://leaderboard-vbbp.onrender.com"
 
 
 function App() {
