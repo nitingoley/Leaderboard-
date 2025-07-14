@@ -5,7 +5,7 @@ import Notification from "./components/Notification";
 import LeaderboardTable from "./components/LeaderboardTable";
 import UserSelector from "./components/UserSelector";
 
-const API_BASE = "https://leaderboard-vbbp.onrender.com"
+const API_BASE = "https://leaderboard-5fqm.onrender.com"
 
 
 function App() {
