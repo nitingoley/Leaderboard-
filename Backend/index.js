@@ -15,7 +15,7 @@ connectDB()
   .then(() => {
     //  Middleware
     app.use(cors({
-      origin: process.env.FRONTEND_URL || "*", 
+      origin: "https://leaderboard-odsv.onrender.com/" || "*", 
       credentials: true,
     }));
 
