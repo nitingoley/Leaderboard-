@@ -10,26 +10,24 @@ const historyRoutes = require('./routes/history.routes.js');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-//    Connect to MongoDB first
+// 🔧 Middleware (move this outside connectDB then update CORS origin check below)
+app.use(cors({
+  origin: ["https://leaderboard-odsv.onrender.com"],  // ✅ Without trailing slash!
+  credentials: true,
+}));
+
+app.use(express.json());
+
+// 🔌 API Routes
+app.use('/api/users', userRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api/history', historyRoutes);
+
+// 🚀 Start server after DB connects
 connectDB()
   .then(() => {
-    //  Middleware
-    app.use(cors({
-      origin: "https://leaderboard-odsv.onrender.com/" || "*", 
-      credentials: true,
-    }));
-
-    app.use(express.json());
-
-    //  Backend API Routes
-    app.use('/api/users', userRoutes);
-    app.use('/api/leaderboard', leaderboardRoutes);
-    app.use('/api/history', historyRoutes);
-
-
-    //  Start server
     app.listen(PORT, () => {
-      console.log(` Server running on http://localhost:${PORT}`);
+      console.log(`✅ Server running on http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
