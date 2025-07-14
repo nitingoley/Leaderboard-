@@ -1,4 +1,3 @@
-
 const LeaderboardTable = ({ leaderboard }) => {
   return (
     <div className="overflow-x-auto">
@@ -11,13 +10,14 @@ const LeaderboardTable = ({ leaderboard }) => {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          {leaderboard.map((user) => (
-            <tr key={user.name}>
-              <td className="p-3">#{user.rank}</td>
-              <td className="p-3 font-medium">{user.name}</td>
-              <td className="p-3">{user.totalPoints}</td>
-            </tr>
-          ))}
+          {Array.isArray(leaderboard) &&
+            leaderboard.map((user) => (
+              <tr key={user.name}>
+                <td className="p-3">#{user.rank}</td>
+                <td className="p-3 font-medium">{user.name}</td>
+                <td className="p-3">{user.totalPoints}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

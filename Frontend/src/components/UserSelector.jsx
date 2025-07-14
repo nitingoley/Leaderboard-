@@ -11,11 +11,14 @@ const UserSelector = ({
       onChange={(e) => setSelectedUser(e.target.value)}
     >
       <option value="">Select User</option>
-      {users.map((user) => (
-        <option value={user._id} key={user._id}>
-          {user.name}
-        </option>
-      ))}
+    {Array.isArray(users) &&
+  users.map((user) => (
+    <option value={user._id} key={user._id}>
+      {user.name}
+    </option>
+  ))
+}
+
     </select>
     <button
       onClick={handleClaim}
