@@ -7,7 +7,8 @@ import UserSelector from "./components/UserSelector";
 
 const API_BASE = import.meta.env.MODE === "development"
   ? import.meta.env.VITE_BACKEND_URL
-  : "/api";
+  : "https://leaderboard-api.onrender.com/api";
+
 
 function App() {
   const [users, setUsers] = useState([]);
